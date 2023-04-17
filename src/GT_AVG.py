@@ -20,8 +20,8 @@ def get_avg_of_GT(source,target,window_size=1000):
   Each second has ~ 1000 data point while Our methods has only one data point for each second
    '''
   
-  source = r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\GroundTruthData"
-  target =r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\GT_AVG"
+  #source = r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\GroundTruthData"
+  #target =r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\GT_AVG"
   files_list = os.listdir(source)
   
   for i in files_list:
@@ -35,7 +35,7 @@ def get_avg_of_GT(source,target,window_size=1000):
         start = 0
         tlist = []
     for i in range(0, len(df.index)):
-        if (i + 1)%1000 == 0:
+        if (i + 1)%2000 == 0: ####ATTENTION HERE###
             result = df.iloc[start:i+1].mean()
             result=round(result, 2)
             tlist.append(result)
@@ -46,7 +46,7 @@ def get_avg_of_GT(source,target,window_size=1000):
 
   return  print(final_list_frame)
 
-get_avg_of_GT(r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\sil"
+get_avg_of_GT(r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\GroundTruthData"
               ,r"C:\Users\resit\Downloads\Comparison-of-Extraction-Methods-and-Predictor-Models\datasets\GT_AVG"
               ,1000)
 
